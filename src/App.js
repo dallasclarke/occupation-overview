@@ -6,11 +6,15 @@ import {
   initialState,
 } from "./reducers/occupationReducer";
 
+import OccupationContext from "./context/occupationContext";
+
+import Summary from "./components/summary/Summary";
+
 import "./App.css";
 
 function App() {
   const [state, dispatch] = useReducer(occupationDataReducer, initialState);
-  // const { data, loading, error } = state;
+  const { loading, data } = state;
 
   useEffect(() => {
     dispatch({ type: "CALL_API" });
@@ -32,11 +36,27 @@ function App() {
   }, []);
 
   // console.log(data);
+  const providerState = {
+    state,
+    dispatch,
+  };
 
   return (
-    <div className="App">
-      <h1>APP Component</h1>
-    </div>
+    <OccupationContext.Provider value={providerState}>
+      <div className="App">
+        <h1>Occupation Overview</h1>
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            <p>
+              {data.occupation.title} in {data.region.title}
+            </p>
+            <Summary />
+          </>
+        )}
+      </div>
+    </OccupationContext.Provider>
   );
 }
 

@@ -1,6 +1,6 @@
 export const initialState = {
-  data: [],
-  loading: false,
+  data: "",
+  loading: true,
   error: null,
 };
 
@@ -9,7 +9,7 @@ export const occupationDataReducer = (state, action) => {
     case "CALL_API":
       return {
         ...state,
-        loading: true,
+        
       };
 
     case "SUCCESS":
