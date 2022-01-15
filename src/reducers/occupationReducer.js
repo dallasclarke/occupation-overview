@@ -1,5 +1,5 @@
 export const initialState = {
-  data: null,
+  data: [],
   loading: false,
   error: null,
 };
