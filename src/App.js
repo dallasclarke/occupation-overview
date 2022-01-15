@@ -9,6 +9,7 @@ import {
 import OccupationContext from "./context/occupationContext";
 
 import Summary from "./components/summary/Summary";
+import DataChart from "./components/chart/DataChart"
 
 import "./App.css";
 
@@ -53,6 +54,7 @@ function App() {
               {data.occupation.title} in {data.region.title}
             </p>
             <Summary />
+            <DataChart />
           </>
         )}
       </div>
