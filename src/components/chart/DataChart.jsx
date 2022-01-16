@@ -1,26 +1,8 @@
 import React from "react";
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-//   PointElement
-// } from "chart.js";
 import Chart from "chart.js/auto";
-import { Line, Doughnut } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-//   PointElement
-// );
+import Trends from "../trends/Trends";
 
 const data = {
   labels: [2013, 2014, 2015, 2016, 2017, 2018],
@@ -56,6 +38,7 @@ function DataChart() {
       </header>
       <hr />
       <Line data={data} options={options} />
+      <Trends />
     </div>
   );
 }

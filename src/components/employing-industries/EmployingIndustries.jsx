@@ -21,7 +21,7 @@ function EmployingIndustries() {
       <header>
         <p>Industries Employing </p>
       </header>
-      <Table variant="black">
+      <Table>
         <thead>
           <tr>
             <th>Industry</th>

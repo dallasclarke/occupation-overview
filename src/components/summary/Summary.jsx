@@ -2,6 +2,8 @@ import React from "react";
 
 import { useOccupationContext } from "../../context/occupationContext";
 
+import "./Summary.css"
+
 function Summary() {
   const { state } = useOccupationContext();
   const { data } = state;

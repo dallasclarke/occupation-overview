@@ -1,0 +1,9 @@
+.stats {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.stats ul {
+    list-style: none;
+}
