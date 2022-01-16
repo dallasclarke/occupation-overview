@@ -51,12 +51,14 @@ function Trends() {
           <td>{stateStartJobs}</td>
           <td>{stateEndJobs}</td>
           <td>{jobChange(stateStartJobs, stateEndJobs)}</td>
+          <td>{jobChangePercentage(stateStartJobs, stateEndJobs)}</td>
         </tr>
         <tr>
           <td>Nation</td>
           <td>{nationStartJobs}</td>
           <td>{nationEndJobs}</td>
           <td>{jobChange(nationStartJobs, nationEndJobs)}</td>
+          <td>{jobChangePercentage(nationStartJobs, nationEndJobs)}</td>
         </tr>
       </tbody>
     </Table>

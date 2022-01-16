@@ -2,35 +2,66 @@ import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-import Trends from "../trends/Trends";
+import { useOccupationContext } from "../../context/occupationContext";
 
-const data = {
-  labels: [2013, 2014, 2015, 2016, 2017, 2018],
-  datasets: [
-    {
-      label: "Regional",
-      data: [11904, 12384, 12352, 12680, 12920, 13114],
-      fill: true,
-      backgroundColor: "rgba(75,192,192,0.2)",
-      borderColor: "rgba(75,192,192,1)",
-    },
-    {
-      label: "National",
-      data: [300651, 307024, 314154, 318998, 326205],
-      fill: true,
-    },
-  ],
-};
+import Trends from "../trends/Trends";
 
 const options = {
   scales: {
     y: {
       beginAtZero: true,
+      title: {
+        display: true,
+        text: "Percent Change",
+      },
     },
   },
 };
 
 function DataChart() {
+  const { state } = useOccupationContext();
+
+  const regionalGrowth = state.data.trend_comparison.regional;
+  const nationalGrowth = state.data.trend_comparison.nation;
+  const stateGrowth = state.data.trend_comparison.state;
+
+  const growthRate = (nums) => {
+    let result = [0];
+
+    for (let i = 0; i < nums.length - 1; i++) {
+      result.push(((nums[i + 1] - nums[i]) / nums[i]) * 100);
+    }
+
+    return result.map((n) => n.toFixed(2));
+  };
+
+  const data = {
+    labels: [2013, 2014, 2015, 2016, 2017, 2018],
+    datasets: [
+      {
+        label: "Regional",
+        data: growthRate(regionalGrowth),
+        fill: true,
+        backgroundColor: "rgba(7, 225, 230, 0.2)",
+        borderColor: "rgba(7, 225, 230, 0.8)",
+      },
+      {
+        label: "National",
+        data: growthRate(nationalGrowth),
+        fill: true,
+        backgroundColor: "rgba(7, 219, 91, 0.2)",
+        borderColor: "rgba(7, 219, 91, 0.8)",
+      },
+      {
+        label: "State",
+        data: growthRate(stateGrowth),
+        // fill: true,
+        backgroundColor: "rgba(245, 64, 64, 0.2)",
+        borderColor: "rgba(245, 64, 64, 0.8)",
+      },
+    ],
+  };
+
   return (
     <div>
       <header>
