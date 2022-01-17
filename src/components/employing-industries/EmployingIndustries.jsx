@@ -19,8 +19,9 @@ function EmployingIndustries() {
   return (
     <div className="employing-industries">
       <header>
-        <p>Industries Employing </p>
+        <h3>Industries Employing </h3>
       </header>
+      <hr />
       <Table>
         <thead>
           <tr>
@@ -41,7 +42,7 @@ function EmployingIndustries() {
 
             return (
               <tr key={idx}>
-                <td>{industry.title}</td>
+                <td className="industry-name">{industry.title}</td>
                 <td>{industry.in_occupation_jobs}</td>
                 <td>{percentOfOccupation.toFixed(1)}</td>
                 <td>{percentOfJobs.toFixed(1)}</td>

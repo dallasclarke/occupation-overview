@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from "react";
+import { SpinnerRound } from "spinners-react";
 import axios from "axios";
 
 import {
@@ -37,7 +38,6 @@ function App() {
     getData();
   }, []);
 
-  // console.log(data);
   const providerState = {
     state,
     dispatch,
@@ -46,11 +46,13 @@ function App() {
   return (
     <OccupationContext.Provider value={providerState}>
       <div className="App">
-        <h1>Occupation Overview</h1>
         {loading ? (
-          <h1>Loading...</h1>
+          <div className="spinner">
+            <SpinnerRound size={150} style={{ textAlign: "center" }} />
+          </div>
         ) : (
           <>
+            <h1>Occupation Overview</h1>
             <p>
               {data.occupation.title} in {data.region.title}
             </p>

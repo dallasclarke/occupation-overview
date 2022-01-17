@@ -1,9 +1,32 @@
-.stats {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
+.summary {
+  padding-bottom: 2em;
 }
 
+.summary-head {
+  font-weight: bold;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  text-align: center;
+}
 .stats ul {
-    list-style: none;
+  list-style: none;
+}
+
+.stat-row-1 {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.above {
+  color: green;
+  font-weight: bold;
+}
+
+.below {
+  color: red;
+  font-weight: bold;
 }

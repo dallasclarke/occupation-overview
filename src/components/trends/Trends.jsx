@@ -3,6 +3,8 @@ import { Table } from "react-bootstrap";
 
 import { useOccupationContext } from "../../context/occupationContext";
 
+import "./Trends.css";
+
 function Trends() {
   const { state } = useOccupationContext();
   const { data } = state;
@@ -28,40 +30,42 @@ function Trends() {
   const nationEndJobs = trend.nation[trend.nation.length - 1];
 
   return (
-    <Table>
-      <thead>
-        <tr>
-          <th>Region</th>
-          <th>{trend.start_year} Jobs</th>
-          <th>{trend.end_year} Jobs</th>
-          <th>Change</th>
-          <th>% Change</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Regional</td>
-          <td>{regionStartJobs}</td>
-          <td>{regionEndJobs}</td>
-          <td>{jobChange(regionStartJobs, regionEndJobs)}</td>
-          <td>{jobChangePercentage(regionStartJobs, regionEndJobs)}</td>
-        </tr>
-        <tr>
-          <td>State</td>
-          <td>{stateStartJobs}</td>
-          <td>{stateEndJobs}</td>
-          <td>{jobChange(stateStartJobs, stateEndJobs)}</td>
-          <td>{jobChangePercentage(stateStartJobs, stateEndJobs)}</td>
-        </tr>
-        <tr>
-          <td>Nation</td>
-          <td>{nationStartJobs}</td>
-          <td>{nationEndJobs}</td>
-          <td>{jobChange(nationStartJobs, nationEndJobs)}</td>
-          <td>{jobChangePercentage(nationStartJobs, nationEndJobs)}</td>
-        </tr>
-      </tbody>
-    </Table>
+    <div className="trends">
+      <Table>
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>{trend.start_year} Jobs</th>
+            <th>{trend.end_year} Jobs</th>
+            <th>Change</th>
+            <th>% Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Regional</td>
+            <td>{regionStartJobs}</td>
+            <td>{regionEndJobs}</td>
+            <td>{jobChange(regionStartJobs, regionEndJobs)}</td>
+            <td>{jobChangePercentage(regionStartJobs, regionEndJobs)}</td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td>{stateStartJobs}</td>
+            <td>{stateEndJobs}</td>
+            <td>{jobChange(stateStartJobs, stateEndJobs)}</td>
+            <td>{jobChangePercentage(stateStartJobs, stateEndJobs)}</td>
+          </tr>
+          <tr>
+            <td>Nation</td>
+            <td>{nationStartJobs}</td>
+            <td>{nationEndJobs}</td>
+            <td>{jobChange(nationStartJobs, nationEndJobs)}</td>
+            <td>{jobChangePercentage(nationStartJobs, nationEndJobs)}</td>
+          </tr>
+        </tbody>
+      </Table>
+    </div>
   );
 }
 

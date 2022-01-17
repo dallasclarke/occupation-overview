@@ -59,7 +59,7 @@ function DataChart() {
       {
         label: "State",
         data: growthRate(stateGrowth),
-        // fill: true,
+        fill: true,
         backgroundColor: "rgba(245, 64, 64, 0.2)",
         borderColor: "rgba(245, 64, 64, 0.8)",
       },
