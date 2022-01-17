@@ -26,13 +26,17 @@ function DataChart() {
   const stateGrowth = state.data.trend_comparison.state;
 
   const growthRate = (nums) => {
-    let result = [0];
+    const result = ["0"];
+    nums.forEach((num, i) => {
+      const next = nums[i + 1];
 
-    for (let i = 0; i < nums.length - 1; i++) {
-      result.push(((nums[i + 1] - nums[i]) / nums[i]) * 100);
-    }
+      if (next) {
+        const percentage = ((next - num) / num) * 100;
+        result.push(percentage.toFixed(2));
+      }
+    });
 
-    return result.map((n) => n.toFixed(2));
+    return result;
   };
 
   const data = {
